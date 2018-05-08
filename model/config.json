@@ -3,12 +3,12 @@
         "company": {
             "general": {
                 "formContainers": [{
-                    "title": "Identity",
+                    "title": "",
                     "label": "Company Name",
                     "control": {
                         "fragment": "Input",
                         "binding": {
-                            "value": "data>COmpanyName"
+                            "value": "data>/CompanyName"
                         }
                     }
                 },{
@@ -16,167 +16,14 @@
                     "control": {
                         "fragment": "Select_CompanyCategory",
                         "binding": {
-                            "selectedKey": "data>CompanyCategory"
+                            "selectedKey": "data>/CompanyCategory"
                         }
                     }
-                }, {
-                    "label": "Federal EIN (Tax ID)",
-                    "control": {
-                        "fragment": "Input",
-                        "binding": {
-                            "value": "data>TaxID"
-                        }
-                    }
-                }, {
-                  "title": "Communication",
-                  "label": "Contact Person",
-                  "control": {
-                    "fragment": "Input_PersonName",
-                    "binding": {
-                      "value": "data>PersonName"
-                    }
-                  }
-                },{
-                  "label": "Phone Number",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>PhoneNumber"
-                    }
-                  }
-                },{
-                  "label": "Email Address",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>EmailAddress"
-                    }
-                  }
-                },
-            {
-                  "title": "Billing Address",
-                  "label": "Street",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>BillingStreet"
-                    }
-                  }
-                },{
-                  "label": "City",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>BillingCity"
-                    }
-                  }
-                },{
-                  "label": "State",
-                  "control": {
-                    "fragment": "Select_USRegionCodes",
-                    "binding": {
-                      "selectedKey": "data>BillingState"
-                    }
-                  }
-                },
-            {
-                  "label": "Country",
-                  "control": {
-                    "fragment": "Select_Country",
-                    "binding": {
-                      "selectedKey": "data>BillingCountry"
-                    }
-                  }
-                }, {
-                  "label": "Zipcode",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>BillingZipcode"
-                    }
-                  }
-                },
-            {
-                  "title": "Shipping Address",
-                  "label": "Street",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>ShippingStreet"
-                    }
-                  }
-                },{
-                  "label": "City",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>ShippingCity"
-                    }
-                  }
-                },{
-                  "label": "State",
-                  "control": {
-                    "fragment": "Select_USRegionCodes",
-                    "binding": {
-                      "selectedKey": "data>ShippingState"
-                    }
-                  }
-                },
-            {
-                  "label": "Country",
-                  "control": {
-                    "fragment": "Select_Country",
-                    "binding": {
-                      "selectedKey": "data>ShippingCountry"
-                    }
-                  }
-                }, {
-                  "label": "Zipcode",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>ShippingZipcode"
-                    }
-                  }
-                }]
-            },
-            "customer": {
-                "formContainers": [{
-                    "title": "Test Title",
-                    "label": "Test Label",
-                    "control": {
-                        "fragment": "Input",
-                        "binding": {
-                            "value": "data>TestField"
-                        }
-                    }
-                },{
-                    "label": "Second Label",
-                    "control": {
-                        "fragment": "Input",
-                        "binding": {
-                            "value": "data>SecondField"
-                        }
-                    }
-                }, {
-                    "label": "Third Label",
-                    "control": {
-                        "fragment": "Input",
-                        "binding": {
-                            "value": "data>ThirdField"
-                        }
-                    }
-                }, {
-                  "title": "Again",
-                  "label": "Again",
-                  "control": {
-                    "fragment": "Input",
-                    "binding": {
-                      "value": "data>bind"
-                    }
-                  }
-                }]
+                }
+            ],
+                "submit": {
+                  "fieldGroupIds": "save"
+                }}
             }
         }
-    }
 }

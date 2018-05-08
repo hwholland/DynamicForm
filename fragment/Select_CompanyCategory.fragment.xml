@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<Select width="100%" selectedKey="{CompanyCategory}">
+	<Select width="100%" selectedKey="{CompanyCategory}" forceSelection="false">
 			<core:Item key="Customer" text="Customer" />
 			<core:Item key="Vendor" text="Vendor" />
 			<core:Item key="Partner" text="Partner" />

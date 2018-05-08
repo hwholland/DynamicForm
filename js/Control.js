@@ -39,14 +39,10 @@ sap.ui.define(["dynamic/Table/js/Base", "sap/m/Toolbar", "sap/ui/core/Title", "s
              * Sets the configuration settings as a property in the model
              *
              * @method     setConfiguration
-             * @memberof   DynamicTable.js.Control
-             * @param      {Object}  oConfig  The configuration settings
+             * @memberof   DynamicTable.js.Contro
+l             * @param      {Object}  oConfig  The configuration settings
              */
             setConfiguration: function(oConfig) {
-                var oModel = this.getEmptyModel();
-                oModel.setSizeLimit(250000);  
-                oModel.setProperty("/columns", oConfig.columns);
-                this.form.setModel(oModel);
                 this.getContent(oConfig);
             },
 
@@ -62,6 +58,10 @@ sap.ui.define(["dynamic/Table/js/Base", "sap/m/Toolbar", "sap/ui/core/Title", "s
                         this.form.addContent(oConfig.formContainers[i].control);
                     }
                 }
+            },
+
+            setComponentReference: function(oComponent) {
+                this.form._oComponent = oComponent;
             },
 
             /**

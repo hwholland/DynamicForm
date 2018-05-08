@@ -5,7 +5,7 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
         /**
          * Generates responsive simpleForms from the OpenUI5 framework (sap.m.SimpleForm) dynamically
          * by reading properties from a data structure that resides in a JSON file.
-         * 
+         *
          * @class       DynamicSimpleForm
          * @subject     DynamicSimpleForm
          * @extends     sap.ui.core.UIComponent
@@ -34,7 +34,7 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
             /**
              * @brief   Initiates the sequence of events which configures and returns
              * a user-interface control of a responsive SimpleForm.
-             * 
+             *
              * @method      getSimpleForm
              * @memberof    DynamicSimpleForm
              * @example
@@ -44,7 +44,7 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
              *     var oSimpleForm = this.getSimpleForm(sMethod, sSubject, sClass);
              *     return (oSimpleForm.getControl());
              * }
-             * 
+             *
              * @param {String} sMethod The method property of the data model
              * @param {String} sSubject The subject property of the data model
              * @param {String} sClass The classification property of the data model
@@ -73,37 +73,43 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
             /**
              * @brief Executes each of the configuration steps required to build a new instance
              * of the control object.
-             * 
+             *
              * @method      runSetup
              * @memberof    DynamicSimpleForm
-             * 
+             *
              * @param {String} sId       The control ID for the DOM object tree
              * @param {String} sMethod   The name of the method
              * @param {String} sSubject  The name of the subject
              * @param {String} sClass    The name of the class
-             * 
+             *
              * @return      Instance of the Control class
              */
             runSetup: function(sId, sMethod, sSubject, sClass) {
                 var oSimpleForm = new SimpleForm(this.createId(sId));
+                this._oActiveControl = oSimpleForm;
                 var oConfig = this.getConfiguration(sMethod, sSubject, sClass);
                 this.getFragments(oConfig);
                 this.setConfiguration(oSimpleForm, oConfig);
+                this._oTemplate  = this.getDataTemplate(sMethod, sSubject, sClass);
+                this._oDataModel = new JSONModel();
+                this.resetDataModel();
+                this.view.setModel(this._oDataModel, "data");
+                oSimpleForm.setComponentReference(this);
                 this.simpleForms[sMethod][sSubject][sClass] = oSimpleForm;
                 return (this.simpleForms[sMethod][sSubject][sClass]);
             },
 
             /**
-             * @brief Retrieves the node of the data structure containing the settings for 
+             * @brief Retrieves the node of the data structure containing the settings for
              * the specific instance of the SimpleForm.
-             * 
+             *
              * @method      getConfiguration
              * @memberof    DynamicSimpleForm
-             * 
+             *
              * @param {String} sMethod   The name of the method
              * @param {String} sSubject  The name of the subject
              * @param {String} sClass    The name of the class
-             * 
+             *
              * @return  Settings for the SimpleForm configuration from the data model
              */
             getConfiguration: function(sMethod, sSubject, sClass) {
@@ -112,9 +118,9 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
 
             /**
              * @brief   Returns the entire data structure with all configuration options
-             *          
+             *
              * @memberof    DynamicSimpleForm
-             * 
+             *
              * @return  Model containing all methods, subjects, and classes
              */
             getConfigModel: function() {
@@ -123,23 +129,25 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
 
             /**
              * @brief   Retrieves a model with sample data
-             * 
+             *
              * @method      getDataModel
              * @memberof    DynamicSimpleForm
-             * 
+             *
              * @return  Model containing sample data
              */
-            getDataModel: function() {
-                return (this.getModel("data"));
+            getDataTemplate: function(sMethod, sSubject, sClass) {
+                var oModel = this.getModel("data");
+                var oData = oModel.getData()[sMethod][sSubject][sClass];
+                return (oData);
             },
 
             /**
-             * @brief Instantiates a new control (from an XML fragment) for 
+             * @brief Instantiates a new control (from an XML fragment) for
              * each of the columns in the SimpleForm instance.
-             * 
+             *
              * @method      getFragments
              * @memberof    DynamicSimpleForm
-             * 
+             *
              * @param {Object} oConfig  Configuration for the SimpleForm instance (method + subject + class)
              */
             getFragments: function(oConfig) {
@@ -180,10 +188,10 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
 
             /**
              * @brief   Sets the configuration options for the SimpleForm
-             * 
+             *
              * @method      setConfiguration
              * @memberof    DynamicSimpleForm
-             * 
+             *
              * @param {Object} oSimpleForm The instantiated SimpleForm object
              * @param {Object} oConfig The configuration for the SimpleForm instance
              */
@@ -193,10 +201,10 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
 
             /**
              * @brief   Gets a new responsive SimpleForm control
-             * 
+             *
              * @method      getControl
              * @memberof    DynamicSimpleForm
-             * 
+             *
              * @example
              * onBeforeOpenDialog: function (oEvent) {
              *     var oSource = oEvent.getSource();
@@ -205,7 +213,7 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
              *     var sSubject = this.getOwnerComponent().getFieldGroupId(oSource, "subject");
              *     var sClass = this.getOwnerComponent().getFieldGroupId(oSource, "class");
              *     var that = this;
-             *     
+             *
              *     var pComponent = new Promise((resolve, reject) => {
              *         resolve(that.getOwnerComponent().getComponent(sComponent, sMethod, sSubject, sClass, that.getView()));
              *     }).then(function (oComponent) {
@@ -213,18 +221,27 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
              *         oSource.addContent(oControl);
              *     });
              * }
-             * 
+             *
              * @param {String} sMethod   The name of the method
              * @param {String} sSubject  The name of the subject
              * @param {String} sClass    The name of the class
              * @param {Object} oView     The view object requesting the control
-             * 
+             *
              * @return  Instantiated user-interface control
              */
             getControl: function(sMethod, sSubject, sClass, oView) {
                 this.view = oView;
                 var oSimpleForm = this.getSimpleForm(sMethod, sSubject, sClass);
                 return (oSimpleForm.getControl());
+            },
+
+            resetDataModel: function() {
+                var oData = jQuery.extend(true, {}, this._oTemplate);
+                this._oDataModel.setData(oData);
+                console.log(this._oTemplate);
+                console.log(this._oDataModel);
+                console.log("reset");
+                console.log(this.view.getModel("data"));
             }
 
         });
