@@ -1,0 +1,56 @@
+{
+  "_version": "1.0.0",
+  "sap.app": {
+    "_version": "1.0.0",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "config": {
+        "type": "json",
+        "uri": "model/config.json"
+      },
+      "data": {
+        "type": "json",
+        "uri": "model/data.json"
+      }
+    },
+    "description": "{{description}}",
+    "i18n": "model/i18n.properties",
+    "id": "dynamic.SimpleForm",
+    "title": "{{title}}",
+    "type": "component"
+  },
+  "sap.ui5": {
+    "_version": "1.52.2",
+    "dependencies": {
+      "libs": {
+        "sap.m": {
+          "lazy": false
+        },
+        "sap.ui.core": {
+          "lazy": false
+        },
+        "sap.ui.layout": {
+          "lazy": false
+        }
+      },
+      "minUI5Version": "1.52.2"
+    },
+    "models": {
+      "config": {
+        "dataSource": "config",
+        "preload": true,
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "data": {
+        "dataSource": "data",
+        "preload": true,
+        "type": "sap.ui.model.json.JSONModel"
+      }
+    },
+    "resourceRoots": {
+    },
+    "resources": {}
+  }
+}

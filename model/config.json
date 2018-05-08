@@ -1,0 +1,43 @@
+{
+    "record": {
+        "company": {
+            "customer": {
+                "formContainers": [{
+                    "title": "Test Title",
+                    "label": "Test Label",
+                    "control": {
+                        "fragment": "Input",
+                        "binding": {
+                            "value": "data>TestField"
+                        }
+                    }
+                },{
+                    "label": "Second Label",
+                    "control": {
+                        "fragment": "Input",
+                        "binding": {
+                            "value": "data>SecondField"
+                        }
+                    }
+                }, {
+                    "label": "Third Label",
+                    "control": {
+                        "fragment": "Input",
+                        "binding": {
+                            "value": "data>ThirdField"
+                        }
+                    }
+                }, {
+                  "title": "Again",
+                  "label": "Again",
+                  "control": {
+                    "fragment": "Input",
+                    "binding": {
+                      "value": "data>bind"
+                    }
+                  }
+                }]
+            }
+        }
+    }
+}
