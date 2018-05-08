@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<Select width="100%" selectedKey="{CompanyCategory}">
+	<core:Item text="Alabama" key="AL" />
+	<core:Item text="Alaska" key="AK" />
+	<core:Item text="Arizona" key="AZ" />
+	<core:Item text="Arkansas" key="AR" />
+	<core:Item text="California" key="CA" />
+	<core:Item text="Colorado" key="CO" />
+	<core:Item text="Connecticut" key="CT" />
+	<core:Item text="Delaware" key="DE" />
+	<core:Item text="Florida" key="FL" />
+	<core:Item text="Georgia" key="GA" />
+	<core:Item text="Hawaii" key="HI" />
+	<core:Item text="Idaho" key="ID" />
+	<core:Item text="Illinois" key="IL" />
+	<core:Item text="Indiana" key="IN" />
+	<core:Item text="Iowa" key="IA" />
+	<core:Item text="Kansas" key="KS" />
+	<core:Item text="Kentucky" key="KY" />
+	<core:Item text="Louisiana" key="LA" />
+	<core:Item text="Maine" key="ME" />
+	<core:Item text="Maryland" key="MD" />
+	<core:Item text="Massachusetts" key="MA" />
+	<core:Item text="Michigan" key="MI" />
+	<core:Item text="Minnesota" key="MN" />
+	<core:Item text="Mississippi" key="MS" />
+	<core:Item text="Missouri" key="MO" />
+	<core:Item text="Montana" key="MT" />
+	<core:Item text="Nebraska" key="NE" />
+	<core:Item text="Nevada" key="NV" />
+	<core:Item text="New Hampshire" key="NH" />
+	<core:Item text="New Jersey" key="NJ" />
+	<core:Item text="New Mexico" key="NM" />
+	<core:Item text="New York" key="NY" />
+	<core:Item text="North Carolina" key="NC" />
+	<core:Item text="North Dakota" key="ND" />
+	<core:Item text="Ohio" key="OH" />
+	<core:Item text="Oklahoma" key="OK" />
+	<core:Item text="Oregon" key="OR" />
+	<core:Item text="Pennsylvania" key="PA" />
+	<core:Item text="Rhode Island" key="RI" />
+	<core:Item text="South Carolina" key="SC" />
+	<core:Item text="South Dakota" key="SD" />
+	<core:Item text="Tennessee" key="TN" />
+	<core:Item text="Texas" key="TX" />
+	<core:Item text="Utah" key="UT" />
+	<core:Item text="Vermont" key="VT" />
+	<core:Item text="Virginia" key="VA" />
+	<core:Item text="Washington" key="WA" />
+	<core:Item text="West Virginia" key="WV" />
+	<core:Item text="Wisconsin" key="WI" />
+	<core:Item text="Wyoming" key="WY" />
+</Select>
+</core:FragmentDefinition>
