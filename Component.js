@@ -238,10 +238,6 @@ sap.ui.define(['sap/ui/core/UIComponent', 'sap/ui/model/json/JSONModel', 'dynami
             resetDataModel: function() {
                 var oData = jQuery.extend(true, {}, this._oTemplate);
                 this._oDataModel.setData(oData);
-                console.log(this._oTemplate);
-                console.log(this._oDataModel);
-                console.log("reset");
-                console.log(this.view.getModel("data"));
             }
 
         });
